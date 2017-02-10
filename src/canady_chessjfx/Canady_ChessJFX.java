@@ -1,15 +1,17 @@
 package canady_chessjfx;
 
 import javafx.application.Application;
-import javafx.event.*;
+//import javafx.event.*;
 import javafx.scene.*;
 import javafx.scene.control.*;
 import javafx.scene.layout.*;
 import javafx.stage.*;
+import java.util.*;
 
 public class Canady_ChessJFX extends Application {
 
-    public static Piece[][] plist = new Piece[8][8];
+    public static ArrayList<Piece> wlist = new ArrayList();
+    public static ArrayList<Piece> blist = new ArrayList();
     public static King wking, bking; //init
     public static Queen wqueen, bqueen;
     public static Knight wknight1, wknight2, bknight1, bknight2;
@@ -20,18 +22,39 @@ public class Canady_ChessJFX extends Application {
 
     @Override
     public void start(Stage primaryStage) {
+        initPieces();
+        assign();
         Button[][] bbb = new Button[8][8];
-        for (int i = 0; i < 8; i++) {
-            for (int j = 0; j < 8; j++) {
-                String sss = Character.toString(plist[i][j].getSymbol());
-                bbb[i][j] = new Button(sss);
-            }
-        }
-        Pane root = new Pane();
-//        btn.setLayoutX(250);
-//        btn.setLayoutY(220);
-//        root.getChildren().add(btn);
+        Group root = new Group();
         Scene scene = new Scene(root, 1280, 720);
+        for (Piece p : wlist) {
+            String sss = Character.toString(p.getSymbol());
+            bbb[p.getX()][p.getY()] = new Button(sss);
+            bbb[p.getX()][p.getY()].setLayoutX(p.getX() * 50);
+            bbb[p.getX()][p.getY()].setLayoutY(p.getY() * 50);
+            root.getChildren().add(bbb[p.getX()][p.getY()]);
+            System.out.println("Button added at " + bbb[p.getX()][p.getY()].getLayoutX() + ", " + bbb[p.getX()][p.getY()].getLayoutY());
+//            System.out.println(p.getX());
+        }
+        for (Piece p : blist) {
+            String sss = Character.toString(p.getSymbol());
+            bbb[p.getX()][p.getY()] = new Button(sss);
+            bbb[p.getX()][p.getY()].setLayoutX(p.getX() * 50);
+            bbb[p.getX()][p.getY()].setLayoutY(p.getY() * 50);
+            root.getChildren().add(bbb[p.getX()][p.getY()]);
+            System.out.println("Button added at " + bbb[p.getX()][p.getY()].getLayoutX() + ", " + bbb[p.getX()][p.getY()].getLayoutY());
+        }
+        root.getChildren().add(bbb[0][0]);
+//        for (int i = 0; i < 8; i++) {
+//            for (int j = 0; j < 8; j++) {
+//                Button b = bbb[i][j];
+//                root.getChildren().add(bbb[i][j]);
+//                if (b != null) {
+//                    
+//                }
+//            }
+//        }
+//
 
 //        btn.setOnAction(new EventHandler<ActionEvent>() { //button action
 //            @Override
@@ -44,6 +67,7 @@ public class Canady_ChessJFX extends Application {
     }
 
     public static void main(String[] args) {
+
         launch(args);
     }
 
@@ -52,39 +76,38 @@ public class Canady_ChessJFX extends Application {
     }
 
     static void assign() {
-
-        plist[0][3] = wking;
-        plist[1][4] = wqueen;
-        plist[0][2] = wbishop1;
-        plist[0][5] = wbishop2;
-        plist[0][1] = wknight1;
-        plist[0][6] = wknight2;
-        plist[0][0] = wrook1;
-        plist[0][7] = wrook2;
-        plist[1][0] = wpawn1;
-        plist[1][1] = wpawn2;
-        plist[1][2] = wpawn3;
-        plist[1][3] = wpawn4;
-        plist[1][4] = wpawn5;
-        plist[1][5] = wpawn6;
-        plist[1][6] = wpawn7;
-        plist[1][7] = wpawn8;
-        plist[7][4] = bking;
-        plist[7][3] = bqueen;
-        plist[7][2] = bbishop1;
-        plist[7][5] = bbishop2;
-        plist[7][1] = bknight1;
-        plist[7][6] = bknight2;
-        plist[7][0] = brook1;
-        plist[7][7] = brook2;
-        plist[6][0] = bpawn1;
-        plist[6][1] = bpawn2;
-        plist[6][2] = bpawn3;
-        plist[6][3] = bpawn4;
-        plist[6][4] = bpawn5;
-        plist[6][5] = bpawn6;
-        plist[6][6] = bpawn7;
-        plist[6][7] = bpawn8;
+        wlist.add(wking);
+        wlist.add(wqueen);
+        wlist.add(wbishop1);
+        wlist.add(wbishop2);
+        wlist.add(wknight1);
+        wlist.add(wknight2);
+        wlist.add(wrook1);
+        wlist.add(wrook2);
+        wlist.add(wpawn1);
+        wlist.add(wpawn2);
+        wlist.add(wpawn3);
+        wlist.add(wpawn4);
+        wlist.add(wpawn5);
+        wlist.add(wpawn6);
+        wlist.add(wpawn7);
+        wlist.add(wpawn8);
+        blist.add(bking);
+        blist.add(bqueen);
+        blist.add(bbishop1);
+        blist.add(bbishop2);
+        blist.add(bknight1);
+        blist.add(bknight2);
+        blist.add(brook1);
+        blist.add(brook2);
+        blist.add(bpawn1);
+        blist.add(bpawn2);
+        blist.add(bpawn3);
+        blist.add(bpawn4);
+        blist.add(bpawn5);
+        blist.add(bpawn6);
+        blist.add(bpawn7);
+        blist.add(bpawn8);
     }
 
     public static void initPieces() {
