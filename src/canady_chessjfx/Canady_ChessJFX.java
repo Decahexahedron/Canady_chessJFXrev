@@ -4,7 +4,7 @@ import javafx.application.Application;
 //import javafx.event.*;
 import javafx.scene.*;
 import javafx.scene.control.*;
-import javafx.scene.layout.*;
+//import javafx.scene.layout.*;
 import javafx.stage.*;
 import java.util.*;
 
@@ -12,7 +12,7 @@ public class Canady_ChessJFX extends Application {
 
     public static ArrayList<Piece> wlist = new ArrayList();
     public static ArrayList<Piece> blist = new ArrayList();
-    public static King wking, bking; //init
+    public static King wking, bking;
     public static Queen wqueen, bqueen;
     public static Knight wknight1, wknight2, bknight1, bknight2;
     public static Bishop wbishop1, wbishop2, bbishop1, bbishop2;
@@ -27,34 +27,32 @@ public class Canady_ChessJFX extends Application {
         Button[][] bbb = new Button[8][8];
         Group root = new Group();
         Scene scene = new Scene(root, 1280, 720);
-        for (Piece p : wlist) {
+        bbb[0][3] = new Button();
+        bbb[0][3].setText("♔");
+        bbb[0][3].setLayoutX(30);
+        bbb[0][3].setLayoutY(30);
+       // root.getChildren().add(bbb[0][3]);
+        
+        for (int i = 0; i < wlist.size(); i++) {
+            Piece p = wlist.get(i);
             String sss = Character.toString(p.getSymbol());
             bbb[p.getX()][p.getY()] = new Button(sss);
-            bbb[p.getX()][p.getY()].setLayoutX(p.getX() * 50);
-            bbb[p.getX()][p.getY()].setLayoutY(p.getY() * 50);
+            Button b = bbb[p.getX()][p.getY()];
+            bbb[p.getX()][p.getY()].setLayoutX(p.getX() * 30);
+            bbb[p.getX()][p.getY()].setLayoutY(p.getY() * 30);
             root.getChildren().add(bbb[p.getX()][p.getY()]);
-            System.out.println("Button added at " + bbb[p.getX()][p.getY()].getLayoutX() + ", " + bbb[p.getX()][p.getY()].getLayoutY());
-//            System.out.println(p.getX());
+
+ 
         }
         for (Piece p : blist) {
             String sss = Character.toString(p.getSymbol());
             bbb[p.getX()][p.getY()] = new Button(sss);
-            bbb[p.getX()][p.getY()].setLayoutX(p.getX() * 50);
-            bbb[p.getX()][p.getY()].setLayoutY(p.getY() * 50);
+            Button b = bbb[p.getX()][p.getY()];
+            bbb[p.getX()][p.getY()].setLayoutX(p.getX() * 30);
+            bbb[p.getX()][p.getY()].setLayoutY(p.getY() * 30);
             root.getChildren().add(bbb[p.getX()][p.getY()]);
-            System.out.println("Button added at " + bbb[p.getX()][p.getY()].getLayoutX() + ", " + bbb[p.getX()][p.getY()].getLayoutY());
+          
         }
-        root.getChildren().add(bbb[0][0]);
-//        for (int i = 0; i < 8; i++) {
-//            for (int j = 0; j < 8; j++) {
-//                Button b = bbb[i][j];
-//                root.getChildren().add(bbb[i][j]);
-//                if (b != null) {
-//                    
-//                }
-//            }
-//        }
-//
 
 //        btn.setOnAction(new EventHandler<ActionEvent>() { //button action
 //            @Override
@@ -112,6 +110,8 @@ public class Canady_ChessJFX extends Application {
 
     public static void initPieces() {
         wking = new King(0, 3, "w");
+        System.out.println("wking x is " + wking.getX());
+         System.out.println("wking y is " + wking.getY());
         bking = new King(7, 4, "b");
         wqueen = new Queen(0, 4, "w");
         bqueen = new Queen(7, 3, "b");

@@ -6,7 +6,7 @@ public class Bishop extends Piece {
     private char symbol;
     final private String color;
 
-    Bishop(int a, int b, String d) {
+    public Bishop(int a, int b, String d) {
         this.x = a;
         this.y = b;
         this.color = d;
@@ -17,4 +17,19 @@ public class Bishop extends Piece {
         }
     }
 
+    @Override
+    public int getX() {
+        System.out.println("This happened");
+        return this.x;
+    }
+
+    @Override
+    public int getY() {
+        return this.y;
+    }
+
+    @Override
+    public char getSymbol() {
+        return this.symbol;
+    }
 }

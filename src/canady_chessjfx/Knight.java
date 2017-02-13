@@ -1,12 +1,12 @@
 package canady_chessjfx;
 
-public class Knight  extends Piece {
+public class Knight extends Piece {
 
     private int x, y;
     private char symbol;
     private final String color;
 
-    Knight(int a, int b, String d) {
+    public Knight(int a, int b, String d) {
         this.x = a;
         this.y = b;
         this.color = d;
@@ -17,4 +17,19 @@ public class Knight  extends Piece {
         }
     }
 
+    @Override
+    public int getX() {
+        System.out.println("This happened");
+        return this.x;
+    }
+
+    @Override
+    public int getY() {
+        return this.y;
+    }
+
+    @Override
+    public char getSymbol() {
+        return this.symbol;
+    }
 }

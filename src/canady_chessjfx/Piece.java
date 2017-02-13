@@ -22,19 +22,24 @@ public class Piece {
         this.color = color;
     }
 
+    @Override
+    public String toString() {
+        return "Piece{" + "x=" + x + ", y=" + y + ", symbol=" + symbol + ", color=" + color + '}';
+    }
+
     public int getX() {
-        return x;
+        return this.x;
     }
 
     public int getY() {
-        return y;
+        return this.y;
     }
 
     public char getSymbol() {
-        return symbol;
+        return this.symbol;
     }
 
     public String getColor() {
-        return color;
+        return this.color;
     }
 }

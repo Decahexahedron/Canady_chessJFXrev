@@ -1,12 +1,12 @@
 package canady_chessjfx;
 
-public class Pawn  extends Piece {
+public class Pawn extends Piece {
 
     private int x, y;
     private char symbol;
     private final String color;
 
-    Pawn(int a, int b, String d) {
+    public Pawn(int a, int b, String d) {
         this.x = a;
         this.y = b;
         this.color = d;
@@ -17,4 +17,19 @@ public class Pawn  extends Piece {
         }
     }
 
+    @Override
+    public int getX() {
+        System.out.println("This happened");
+        return this.x;
+    }
+
+    @Override
+    public int getY() {
+        return this.y;
+    }
+
+    @Override
+    public char getSymbol() {
+        return this.symbol;
+    }
 }
