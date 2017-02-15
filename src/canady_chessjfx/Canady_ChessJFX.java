@@ -35,13 +35,14 @@ public class Canady_ChessJFX extends Application {
 
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
-                rrr[i][j] = new Rectangle(j * 30, i * 30, 20, 20);
+                rrr[i][j] = new Rectangle((j * 30) + 3, (i * 30) + 3, 30, 30);
+                rrr[i][j].setFill(null);
                 if (i % 2 == 0) {
                     if (j % 2 != 0) {
-//                        rrr[i][j].setStroke(Color.BLACK);
+                        rrr[i][j].setFill(Color.BURLYWOOD);
                     }
                 } else if (i % 2 != 0 && j % 2 == 0) {
-//                    rrr[i][j].setStroke(Color.BLACK);
+                    rrr[i][j].setFill(Color.BURLYWOOD);
                 }
                 root.getChildren().add(rrr[i][j]);
                 bbb[i][j] = new Button();
