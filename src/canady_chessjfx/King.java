@@ -9,20 +9,16 @@ public class King extends Piece {
     public King(int a, int b, String d) {
         this.x = a;
         this.y = b;
-        System.out.println("Set this King's X to " + this.x);
-        System.out.println("Set this King's Y to " + this.y);
         this.color = d;
         if (this.color.equals("w")) {
             this.symbol = '♔';
         } else if (this.color.equals("b")) {
             this.symbol = '♚';
-
         }
     }
 
     @Override
     public int getX() {
-        System.out.println("This happened");
         return this.x;
     }
 

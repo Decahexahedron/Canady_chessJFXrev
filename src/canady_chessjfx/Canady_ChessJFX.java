@@ -7,6 +7,9 @@ import javafx.scene.control.*;
 //import javafx.scene.layout.*;
 import javafx.stage.*;
 import java.util.*;
+import javafx.scene.layout.Background;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
 
 public class Canady_ChessJFX extends Application {
 
@@ -22,36 +25,53 @@ public class Canady_ChessJFX extends Application {
 
     @Override
     public void start(Stage primaryStage) {
+
         initPieces();
         assign();
         Button[][] bbb = new Button[8][8];
+        Rectangle[][] rrr = new Rectangle[8][8];
         Group root = new Group();
         Scene scene = new Scene(root, 1280, 720);
-        bbb[0][3] = new Button();
-        bbb[0][3].setText("♔");
-        bbb[0][3].setLayoutX(30);
-        bbb[0][3].setLayoutY(30);
-       // root.getChildren().add(bbb[0][3]);
-        
+
+        for (int i = 0; i < 8; i++) {
+            for (int j = 0; j < 8; j++) {
+                rrr[i][j] = new Rectangle(j * 30, i * 30, 20, 20);
+                if (i % 2 == 0) {
+                    if (j % 2 != 0) {
+//                        rrr[i][j].setStroke(Color.BLACK);
+                    }
+                } else if (i % 2 != 0 && j % 2 == 0) {
+//                    rrr[i][j].setStroke(Color.BLACK);
+                }
+                root.getChildren().add(rrr[i][j]);
+                bbb[i][j] = new Button();
+                bbb[i][j].setLayoutX(j * 30);
+                bbb[i][j].setLayoutY(i * 30);
+                bbb[i][j].setText("  ");
+            }
+        }
+
         for (int i = 0; i < wlist.size(); i++) {
             Piece p = wlist.get(i);
             String sss = Character.toString(p.getSymbol());
-            bbb[p.getX()][p.getY()] = new Button(sss);
+            bbb[p.getX()][p.getY()].setText(sss);
             Button b = bbb[p.getX()][p.getY()];
-            bbb[p.getX()][p.getY()].setLayoutX(p.getX() * 30);
-            bbb[p.getX()][p.getY()].setLayoutY(p.getY() * 30);
-            root.getChildren().add(bbb[p.getX()][p.getY()]);
-
- 
+            bbb[p.getX()][p.getY()].setLayoutY(p.getX() * 30);
+            bbb[p.getX()][p.getY()].setLayoutX(p.getY() * 30);
         }
         for (Piece p : blist) {
             String sss = Character.toString(p.getSymbol());
-            bbb[p.getX()][p.getY()] = new Button(sss);
+            bbb[p.getX()][p.getY()].setText(sss);
             Button b = bbb[p.getX()][p.getY()];
-            bbb[p.getX()][p.getY()].setLayoutX(p.getX() * 30);
-            bbb[p.getX()][p.getY()].setLayoutY(p.getY() * 30);
-            root.getChildren().add(bbb[p.getX()][p.getY()]);
-          
+            bbb[p.getX()][p.getY()].setLayoutY(p.getX() * 30);
+            bbb[p.getX()][p.getY()].setLayoutX(p.getY() * 30);
+        }
+
+        for (int i = 0; i < 8; i++) {
+            for (int j = 0; j < 8; j++) {
+                bbb[i][j].setBackground(Background.EMPTY);
+                root.getChildren().add(bbb[i][j]);
+            }
         }
 
 //        btn.setOnAction(new EventHandler<ActionEvent>() { //button action
@@ -59,13 +79,14 @@ public class Canady_ChessJFX extends Application {
 //            public void handle(ActionEvent event) {
 //            }
 //        });
-        primaryStage.setTitle("Chess"); //make window
+        primaryStage.setTitle(
+                "Chess"); //make window
         primaryStage.setScene(scene);
+
         primaryStage.show();
     }
 
     public static void main(String[] args) {
-
         launch(args);
     }
 
@@ -110,8 +131,6 @@ public class Canady_ChessJFX extends Application {
 
     public static void initPieces() {
         wking = new King(0, 3, "w");
-        System.out.println("wking x is " + wking.getX());
-         System.out.println("wking y is " + wking.getY());
         bking = new King(7, 4, "b");
         wqueen = new Queen(0, 4, "w");
         bqueen = new Queen(7, 3, "b");

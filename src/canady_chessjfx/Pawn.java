@@ -19,7 +19,6 @@ public class Pawn extends Piece {
 
     @Override
     public int getX() {
-        System.out.println("This happened");
         return this.x;
     }
 
