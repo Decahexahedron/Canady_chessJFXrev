@@ -3,6 +3,7 @@ package canady_chessjfx;
 public class King extends Piece {
 
     private int x, y;
+    private int a, b;
     private char symbol;
     private final String color;
 
@@ -30,5 +31,11 @@ public class King extends Piece {
     @Override
     public char getSymbol() {
         return this.symbol;
+    }
+
+    @Override
+    public void move(int ax, int ay) {
+        this.setX(this.x + (ax * a));
+        this.setY(this.y + (ay * b));
     }
 }

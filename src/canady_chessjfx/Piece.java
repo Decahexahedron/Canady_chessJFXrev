@@ -3,6 +3,7 @@ package canady_chessjfx;
 public class Piece {
 
     private int x, y;
+    private int a, b;
     private char symbol;
     private String color;
 
@@ -25,6 +26,11 @@ public class Piece {
     @Override
     public String toString() {
         return "Piece{" + "x=" + x + ", y=" + y + ", symbol=" + symbol + ", color=" + color + '}';
+    }
+
+    public void move(int ax, int ay) {
+        this.setX(this.x + (ax * a));
+        this.setY(this.y + (ay * b));
     }
 
     public int getX() {

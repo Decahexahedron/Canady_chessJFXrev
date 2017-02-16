@@ -25,7 +25,6 @@ public class Canady_ChessJFX extends Application {
 
     @Override
     public void start(Stage primaryStage) {
-
         initPieces();
         assign();
         Button[][] bbb = new Button[8][8];
@@ -35,7 +34,7 @@ public class Canady_ChessJFX extends Application {
 
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
-                rrr[i][j] = new Rectangle((j * 30) + 3, (i * 30) + 3, 30, 30);
+                rrr[i][j] = new Rectangle((j * 60) + 3, (i * 60) + 3, 60, 60);
                 rrr[i][j].setFill(null);
                 if (i % 2 == 0) {
                     if (j % 2 != 0) {
@@ -46,9 +45,12 @@ public class Canady_ChessJFX extends Application {
                 }
                 root.getChildren().add(rrr[i][j]);
                 bbb[i][j] = new Button();
-                bbb[i][j].setLayoutX(j * 30);
-                bbb[i][j].setLayoutY(i * 30);
+                bbb[i][j].setLayoutX((j * 60) + 14);
+                bbb[i][j].setLayoutY((i * 60) + 14);
                 bbb[i][j].setText("  ");
+                bbb[i][j].setPrefSize(35, 35);
+                bbb[i][j].setScaleX(1.75);
+                bbb[i][j].setScaleY(1.75);
             }
         }
 
@@ -57,15 +59,15 @@ public class Canady_ChessJFX extends Application {
             String sss = Character.toString(p.getSymbol());
             bbb[p.getX()][p.getY()].setText(sss);
             Button b = bbb[p.getX()][p.getY()];
-            bbb[p.getX()][p.getY()].setLayoutY(p.getX() * 30);
-            bbb[p.getX()][p.getY()].setLayoutX(p.getY() * 30);
+            bbb[p.getX()][p.getY()].setLayoutY((p.getX() * 60) + 14);
+            bbb[p.getX()][p.getY()].setLayoutX((p.getY() * 60) + 14);
         }
         for (Piece p : blist) {
             String sss = Character.toString(p.getSymbol());
             bbb[p.getX()][p.getY()].setText(sss);
             Button b = bbb[p.getX()][p.getY()];
-            bbb[p.getX()][p.getY()].setLayoutY(p.getX() * 30);
-            bbb[p.getX()][p.getY()].setLayoutX(p.getY() * 30);
+            bbb[p.getX()][p.getY()].setLayoutY((p.getX() * 60) + 14);
+            bbb[p.getX()][p.getY()].setLayoutX((p.getY() * 60) + 14);
         }
 
         for (int i = 0; i < 8; i++) {
@@ -85,6 +87,7 @@ public class Canady_ChessJFX extends Application {
         primaryStage.setScene(scene);
 
         primaryStage.show();
+        chess();
     }
 
     public static void main(String[] args) {
@@ -92,7 +95,12 @@ public class Canady_ChessJFX extends Application {
     }
 
     public static void chess() {
-
+        int c = 0;
+        int p = (c % 2) + 1;
+        while (wlist.indexOf(wking) != -1 && blist.indexOf(bking) != -1) {
+            System.out.println("Player " + p + ", please select your piece");
+            c++;
+        }
     }
 
     static void assign() {
