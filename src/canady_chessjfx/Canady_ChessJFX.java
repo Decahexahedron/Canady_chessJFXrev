@@ -100,6 +100,7 @@ public class Canady_ChessJFX extends Application {
         while (wlist.indexOf(wking) != -1 && blist.indexOf(bking) != -1) {
             System.out.println("Player " + p + ", please select your piece");
             c++;
+            p = (c % 2) + 1;
         }
     }
 
