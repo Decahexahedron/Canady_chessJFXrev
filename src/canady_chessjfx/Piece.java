@@ -1,5 +1,7 @@
 package canady_chessjfx;
 
+import javafx.scene.control.*;
+
 public class Piece {
 
     private int x, y;
@@ -31,6 +33,10 @@ public class Piece {
     public void move(int ax, int ay) {
         this.setX(this.x + (ax * a));
         this.setY(this.y + (ay * b));
+    }
+
+    public void display(Button[][] bbb) {
+
     }
 
     public int getX() {

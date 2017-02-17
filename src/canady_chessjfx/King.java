@@ -1,5 +1,7 @@
 package canady_chessjfx;
 
+import javafx.scene.control.*;
+
 public class King extends Piece {
 
     private int x, y;

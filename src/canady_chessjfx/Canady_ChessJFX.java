@@ -1,7 +1,7 @@
 package canady_chessjfx;
 
 import javafx.application.Application;
-//import javafx.event.*;
+import javafx.event.*;
 import javafx.scene.*;
 import javafx.scene.control.*;
 //import javafx.scene.layout.*;
@@ -30,7 +30,7 @@ public class Canady_ChessJFX extends Application {
         Button[][] bbb = new Button[8][8];
         Rectangle[][] rrr = new Rectangle[8][8];
         Group root = new Group();
-        Scene scene = new Scene(root, 1280, 720);
+        Scene scene = new Scene(root, 486, 550);
 
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
@@ -54,8 +54,7 @@ public class Canady_ChessJFX extends Application {
             }
         }
 
-        for (int i = 0; i < wlist.size(); i++) {
-            Piece p = wlist.get(i);
+        for (Piece p : wlist) {
             String sss = Character.toString(p.getSymbol());
             bbb[p.getX()][p.getY()].setText(sss);
             Button b = bbb[p.getX()][p.getY()];
@@ -77,6 +76,22 @@ public class Canady_ChessJFX extends Application {
             }
         }
 
+        for (Piece p : wlist) {
+            bbb[p.getX()][p.getY()].setOnAction(new EventHandler<ActionEvent>() { //button action
+                @Override
+                public void handle(ActionEvent event) {
+                    System.out.println(p.getSymbol());
+                }
+            });
+        }
+        for (Piece p : blist) {
+            bbb[p.getX()][p.getY()].setOnAction(new EventHandler<ActionEvent>() { //button action
+                @Override
+                public void handle(ActionEvent event) {
+                    System.out.println(p.getSymbol());
+                }
+            });
+        }
 //        btn.setOnAction(new EventHandler<ActionEvent>() { //button action
 //            @Override
 //            public void handle(ActionEvent event) {
@@ -85,9 +100,9 @@ public class Canady_ChessJFX extends Application {
         primaryStage.setTitle(
                 "Chess"); //make window
         primaryStage.setScene(scene);
-
         primaryStage.show();
         chess();
+        bbishop1.display(bbb);
     }
 
     public static void main(String[] args) {
@@ -97,11 +112,12 @@ public class Canady_ChessJFX extends Application {
     public static void chess() {
         int c = 0;
         int p = (c % 2) + 1;
-        while (wlist.indexOf(wking) != -1 && blist.indexOf(bking) != -1) {
-            System.out.println("Player " + p + ", please select your piece");
-            c++;
-            p = (c % 2) + 1;
-        }
+//        while (wlist.indexOf(wking) != -1 && blist.indexOf(bking) != -1) {
+//            System.out.println("Player " + p + ", please select your piece");
+//
+//            c++;
+//            p = (c % 2) + 1;
+//        }
     }
 
     static void assign() {
