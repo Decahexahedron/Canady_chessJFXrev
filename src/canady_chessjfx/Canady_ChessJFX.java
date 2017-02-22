@@ -9,6 +9,7 @@ import javafx.stage.*;
 import java.util.*;
 import javafx.scene.layout.Background;
 import javafx.scene.paint.Color;
+//import javafx.scene.paint.Paint;
 import javafx.scene.shape.Rectangle;
 
 public class Canady_ChessJFX extends Application {
@@ -75,12 +76,12 @@ public class Canady_ChessJFX extends Application {
                 root.getChildren().add(bbb[i][j]);
             }
         }
-
+        
         for (Piece p : wlist) {
             bbb[p.getX()][p.getY()].setOnAction(new EventHandler<ActionEvent>() { //button action
                 @Override
                 public void handle(ActionEvent event) {
-                    System.out.println(p.getSymbol());
+                    p.display(bbb);
                 }
             });
         }
@@ -88,7 +89,7 @@ public class Canady_ChessJFX extends Application {
             bbb[p.getX()][p.getY()].setOnAction(new EventHandler<ActionEvent>() { //button action
                 @Override
                 public void handle(ActionEvent event) {
-                    System.out.println(p.getSymbol());
+                    p.display(bbb);
                 }
             });
         }
@@ -102,7 +103,7 @@ public class Canady_ChessJFX extends Application {
         primaryStage.setScene(scene);
         primaryStage.show();
         chess();
-        bbishop1.display(bbb);
+
     }
 
     public static void main(String[] args) {
