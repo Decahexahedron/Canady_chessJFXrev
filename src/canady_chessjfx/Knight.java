@@ -40,4 +40,27 @@ public class Knight extends Piece {
         this.setX(this.x + (ax * a));
         this.setY(this.y + (ay * b));
     }
+
+    @Override
+    public void display(Button[][] bbb) {
+        if (this.x > 1) { // top ones
+            bbb[this.x - 2][this.y - 1].setText("o");
+            bbb[this.x - 2][this.y + 1].setText("o");
+        }
+
+        if (this.x < 6) { // bottom ones
+            bbb[this.x + 2][this.y - 1].setText("o");
+            bbb[this.x + 2][this.y + 1].setText("o");
+        }
+
+        if (this.y > 1) { // left ones
+            bbb[this.x - 1][this.y - 2].setText("o");
+            bbb[this.x + 1][this.y - 2].setText("o");
+        }
+
+        if (this.y < 6) { // right ones
+            bbb[this.x - 1][this.y + 2].setText("o");
+            bbb[this.x + 1][this.y + 2].setText("o");
+        }
+    }
 }
