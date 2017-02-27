@@ -44,92 +44,98 @@ public class Knight extends Piece {
     @Override
     public void display(Button[][] bbb) {
         boolean[][] ppp = new boolean[2][8];
+        for (int i = 0; i < 2; i++) {
+            for (int j = 0; j < 8; j++) {
+                ppp[i][j] = false;
+            }
+        }
         for (Piece p : Canady_ChessJFX.wlist) {
-            if (p.getX() == this.x - 2 && p.getY() == this.y - 1) {
-                ppp[0][0] = false;
+            if (check(p, this.x - 2, this.y - 1)) {
+                ppp[0][0] = true;
             }
-            if (p.getX() == this.x - 2 && p.getY() == this.y + 1) {
-                ppp[0][1] = false;
+            if (check(p, this.x - 2, this.y + 1)) {
+                ppp[0][1] = true;
             }
-            if (p.getX() == this.x + 2 && p.getY() == this.y - 1) {
-                ppp[0][2] = false;
+            if (check(p, this.x + 2, this.y - 1)) {
+                ppp[0][2] = true;
             }
-            if (p.getX() == this.x + 2 && p.getY() == this.y + 1) {
-                ppp[0][3] = false;
+            if (check(p, this.x + 2, this.y + 1)) {
+                ppp[0][3] = true;
             }
-            if (p.getX() == this.x - 1 && p.getY() == this.y - 2) {
-                ppp[0][4] = false;
+            if (check(p, this.x - 1, this.y - 2)) {
+                ppp[0][4] = true;
             }
-            if (p.getX() == this.x + 1 && p.getY() == this.y - 2) {
-                ppp[0][5] = false;
+            if (check(p, this.x + 1, this.y - 2)) {
+                ppp[0][5] = true;
             }
-            if (p.getX() == this.x - 1 && p.getY() == this.y + 2) {
-                ppp[0][6] = false;
+            if (check(p, this.x - 1, this.y + 2)) {
+                ppp[0][6] = true;
             }
-            if (p.getX() == this.x + 1 && p.getY() == this.y + 2) {
-                ppp[0][7] = false;
+            if (check(p, this.x + 1, this.y + 2)) {
+                ppp[0][7] = true;
             }
         }
         for (Piece p : Canady_ChessJFX.blist) {
-            if (p.getX() == this.x - 2 && p.getY() == this.y - 1) {
-                ppp[1][0] = false;
+            if (check(p, this.x - 2, this.y - 1)) {
+                ppp[1][0] = true;
             }
-            if (p.getX() == this.x - 2 && p.getY() == this.y + 1) {
-                ppp[1][1] = false;
+            if (check(p, this.x - 2, this.y + 1)) {
+                ppp[1][1] = true;
             }
-            if (p.getX() == this.x + 2 && p.getY() == this.y - 1) {
-                ppp[1][2] = false;
+            if (check(p, this.x + 2, this.y - 1)) {
+                ppp[1][2] = true;
             }
-            if (p.getX() == this.x + 2 && p.getY() == this.y + 1) {
-                ppp[1][3] = false;
+            if (check(p, this.x + 2, this.y + 1)) {
+                ppp[1][3] = true;
             }
-            if (p.getX() == this.x - 1 && p.getY() == this.y - 2) {
-                ppp[1][4] = false;
+            if (check(p, this.x - 1, this.y - 2)) {
+                ppp[1][4] = true;
             }
-            if (p.getX() == this.x + 1 && p.getY() == this.y - 2) {
-                ppp[1][5] = false;
+            if (check(p, this.x + 1, this.y - 2)) {
+                ppp[1][5] = true;
             }
-            if (p.getX() == this.x - 1 && p.getY() == this.y + 2) {
-                ppp[1][6] = false;
+            if (check(p, this.x - 1, this.y + 2)) {
+                ppp[1][6] = true;
             }
-            if (p.getX() == this.x + 1 && p.getY() == this.y + 2) {
-                ppp[1][7] = false;
+            if (check(p, this.x + 1, this.y + 2)) {
+                ppp[1][7] = true;
             }
+
         }
 
         if (this.x > 1) { // top ones
-            if (this.y > 0 && ppp[0][0] && ppp[1][0]) {
+            if (this.y > 0 && !ppp[0][0] && !ppp[1][0]) {
                 bbb[this.x - 2][this.y - 1].setText("o");
             }
-            if (this.y < 7 && ppp[0][1] && ppp[1][1]) {
+            if (this.y < 7 && !ppp[0][1] && !ppp[1][1]) {
                 bbb[this.x - 2][this.y + 1].setText("o");
             }
         }
 
         if (this.x < 6) { // bottom ones
-            if (this.y > 0 && ppp[0][2] && ppp[1][2]) {
+            if (this.y > 0 && !ppp[0][2] && !ppp[1][2]) {
                 bbb[this.x + 2][this.y - 1].setText("o");
             }
-            if (this.y < 7 && ppp[0][3] && ppp[1][3]) {
+            if (this.y < 7 && !ppp[0][3] && !ppp[1][3]) {
                 bbb[this.x + 2][this.y + 1].setText("o");
             }
         }
 
         if (this.y > 1) { // left ones
-            if (this.x > 0 && ppp[0][4] && ppp[1][4]) {
+            if (this.x > 0 && !ppp[0][4] && !ppp[1][4]) {
                 bbb[this.x - 1][this.y - 2].setText("o");
             }
-            if (this.x < 7 && ppp[0][5] && ppp[1][5]) {
+            if (this.x < 7 && !ppp[0][5] && !ppp[1][5]) {
                 bbb[this.x + 1][this.y - 2].setText("o");
             }
         }
 
         if (this.y < 6) { // right ones
-            if (this.x > 0 && ppp[0][6] && ppp[1][6]) {
-                bbb[this.x - 1][this.y + 2].setText("o");
+            if (this.x > 0 && !ppp[0][6] && !ppp[1][6]) {
+                bbb[this.x - 1][this.y + 2].setText("G");
             }
-            if (this.x < 7 && ppp[0][7] && ppp[1][7]) {
-                bbb[this.x + 1][this.y + 2].setText("o");
+            if (this.x < 7 && !ppp[0][7] && !ppp[1][7]) {
+                bbb[this.x + 1][this.y + 2].setText("H");
             }
         }
     }

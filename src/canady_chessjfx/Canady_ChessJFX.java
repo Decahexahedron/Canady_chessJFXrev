@@ -76,7 +76,7 @@ public class Canady_ChessJFX extends Application {
                 root.getChildren().add(bbb[i][j]);
             }
         }
-        
+
         for (Piece p : wlist) {
             bbb[p.getX()][p.getY()].setOnAction(new EventHandler<ActionEvent>() { //button action
                 @Override

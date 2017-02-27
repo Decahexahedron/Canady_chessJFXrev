@@ -54,4 +54,8 @@ public class Piece {
     public String getColor() {
         return this.color;
     }
+
+    public boolean check(Piece p, int cx, int cy) {
+        return cx == p.getX() && cy == p.getY();
+    }
 }
