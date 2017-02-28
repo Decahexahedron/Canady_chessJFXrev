@@ -49,6 +49,7 @@ public class Knight extends Piece {
                 ppp[i][j] = false;
             }
         }
+
         for (Piece p : Canady_ChessJFX.wlist) {
             if (check(p, this.x - 2, this.y - 1)) {
                 ppp[0][0] = true;
@@ -75,6 +76,7 @@ public class Knight extends Piece {
                 ppp[0][7] = true;
             }
         }
+
         for (Piece p : Canady_ChessJFX.blist) {
             if (check(p, this.x - 2, this.y - 1)) {
                 ppp[1][0] = true;
@@ -100,7 +102,6 @@ public class Knight extends Piece {
             if (check(p, this.x + 1, this.y + 2)) {
                 ppp[1][7] = true;
             }
-
         }
 
         if (this.x > 1) { // top ones
@@ -132,10 +133,10 @@ public class Knight extends Piece {
 
         if (this.y < 6) { // right ones
             if (this.x > 0 && !ppp[0][6] && !ppp[1][6]) {
-                bbb[this.x - 1][this.y + 2].setText("G");
+                bbb[this.x - 1][this.y + 2].setText("o");
             }
             if (this.x < 7 && !ppp[0][7] && !ppp[1][7]) {
-                bbb[this.x + 1][this.y + 2].setText("H");
+                bbb[this.x + 1][this.y + 2].setText("o");
             }
         }
     }

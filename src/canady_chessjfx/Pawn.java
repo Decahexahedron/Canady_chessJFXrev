@@ -40,4 +40,97 @@ public class Pawn extends Piece {
         this.setX(this.x + (ax * a));
         this.setY(this.y + (ay * b));
     }
+
+    @Override
+    public void display(Button[][] bbb) {
+        if (this.color.equals("w")) { // white
+            if (this.x == 1) {
+                boolean m = true;
+                boolean m1 = true;
+                for (Piece p : Canady_ChessJFX.wlist) {
+                    if (check(p, this.x + 1, this.y)) {
+                        m = false;
+                    }
+                    if (check(p, this.x + 2, this.y)) {
+                        m1 = false;
+                    }
+                }
+                for (Piece p : Canady_ChessJFX.blist) {
+                    if (check(p, this.x + 1, this.y)) {
+                        m = false;
+                    }
+                    if (check(p, this.x + 2, this.y)) {
+                        m1 = false;
+                    }
+                }
+                if (m) {
+                    bbb[this.x + 1][this.y].setText("o");
+                }
+                if (m1) {
+                    bbb[this.x + 2][this.y].setText("o");
+                }
+            } else {
+                boolean m = true;
+                for (Piece p : Canady_ChessJFX.wlist) {
+                    if (check(p, this.x + 1, this.y)) {
+                        m = false;
+                    }
+                }
+                for (Piece p : Canady_ChessJFX.blist) {
+                    if (check(p, this.x + 1, this.y)) {
+                        m = false;
+                    }
+                }
+                if (m) {
+                    bbb[this.x + 1][this.y].setText("o");
+                }
+            }
+            //                  insert enemy check here
+
+        } else { // black
+            if (this.x == 6) {
+                boolean m = true;
+                boolean m1 = true;
+                for (Piece p : Canady_ChessJFX.wlist) {
+                    if (check(p, this.x - 1, this.y)) {
+                        m = false;
+                    }
+                    if (check(p, this.x - 2, this.y)) {
+                        m1 = false;
+                    }
+                }
+                for (Piece p : Canady_ChessJFX.blist) {
+                    if (check(p, this.x - 1, this.y)) {
+                        m = false;
+                    }
+                    if (check(p, this.x - 2, this.y)) {
+                        m1 = false;
+                    }
+                }
+                if (m) {
+                    bbb[this.x - 1][this.y].setText("o");
+                }
+                if (m1) {
+                    bbb[this.x - 2][this.y].setText("o");
+                }
+            } else {
+                boolean m = true;
+                for (Piece p : Canady_ChessJFX.wlist) {
+                    if (check(p, this.x - 1, this.y)) {
+                        m = false;
+                    }
+                }
+                for (Piece p : Canady_ChessJFX.blist) {
+                    if (check(p, this.x - 1, this.y)) {
+                        m = false;
+                    }
+                }
+                if (m) {
+                    bbb[this.x - 1][this.y].setText("o");
+                }
+            }
+            //                  insert enemy check here
+
+        }
+    }
 }
