@@ -62,6 +62,7 @@ public class Canady_ChessJFX extends Application {
             bbb[p.getX()][p.getY()].setLayoutY((p.getX() * 60) + 14);
             bbb[p.getX()][p.getY()].setLayoutX((p.getY() * 60) + 14);
         }
+
         for (Piece p : blist) {
             String sss = Character.toString(p.getSymbol());
             bbb[p.getX()][p.getY()].setText(sss);
@@ -85,6 +86,7 @@ public class Canady_ChessJFX extends Application {
                 }
             });
         }
+
         for (Piece p : blist) {
             bbb[p.getX()][p.getY()].setOnAction(new EventHandler<ActionEvent>() { //button action
                 @Override
@@ -93,17 +95,12 @@ public class Canady_ChessJFX extends Application {
                 }
             });
         }
-//        btn.setOnAction(new EventHandler<ActionEvent>() { //button action
-//            @Override
-//            public void handle(ActionEvent event) {
-//            }
-//        });
+
         primaryStage.setTitle(
                 "Chess"); //make window
         primaryStage.setScene(scene);
         primaryStage.show();
         chess();
-
     }
 
     public static void main(String[] args) {
@@ -171,7 +168,7 @@ public class Canady_ChessJFX extends Application {
         bbishop2 = new Bishop(7, 5, "b");
         wrook1 = new Rook(0, 0, "w");
         wrook2 = new Rook(0, 7, "w");
-        brook1 = new Rook(7, 0, "b");
+        brook1 = new Rook(4, 1, "b");
         brook2 = new Rook(7, 7, "b");
         wpawn1 = new Pawn(1, 0, "w");
         wpawn2 = new Pawn(1, 1, "w");

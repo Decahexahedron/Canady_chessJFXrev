@@ -44,7 +44,7 @@ public class Bishop extends Piece {
     @Override
     public void display(Button[][] bbb) {
         boolean there;
-        for (int i = 0; i <= this.y; i++) { // up left
+        for (int i = 1; i <= this.y; i++) { // up left
             there = false;
             for (Piece p : Canady_ChessJFX.wlist) {
                 if (p.getX() == this.x - i && p.getY() == this.y - i) {
@@ -63,7 +63,7 @@ public class Bishop extends Piece {
             }
         }
 
-        for (int i = 0; i <= this.y; i++) { // dn left
+        for (int i = 1; i <= this.y; i++) { // dn left
             there = false;
             for (Piece p : Canady_ChessJFX.wlist) {
                 if (p.getX() == this.x + i && p.getY() == this.y - i) {
@@ -82,7 +82,7 @@ public class Bishop extends Piece {
             }
         }
 
-        for (int i = 0; i < 8 - this.y; i++) { // up right
+        for (int i = 1; i < 8 - this.y; i++) { // up right
             there = false;
             for (Piece p : Canady_ChessJFX.wlist) {
                 if (p.getX() == this.x - i && p.getY() == this.y + i) {
@@ -101,7 +101,7 @@ public class Bishop extends Piece {
             }
         }
 
-        for (int i = 0; i < 8 - this.y; i++) { // dn right
+        for (int i = 1; i < 8 - this.y; i++) { // dn right
             there = false;
             for (Piece p : Canady_ChessJFX.wlist) {
                 if (p.getX() == this.x + i && p.getY() == this.y + i) {
@@ -120,4 +120,5 @@ public class Bishop extends Piece {
             }
         }
     }
+
 }
