@@ -48,18 +48,17 @@ public class Rook extends Piece {
             there = false;
             for (Piece p : Canady_ChessJFX.wlist) {
                 if (check(p, this.x - i, this.y)) {
-//                    i = this.x;
+                    i = this.x;
                     there = true;
                 }
             }
             for (Piece p : Canady_ChessJFX.blist) {
                 if (check(p, this.x - i, this.y)) {
-//                    i = this.x;
+                    i = this.x;
                     there = true;
                 }
             }
             if (!there) {
-//                System.out.println("o: " + (this.x - i) + ", " + this.y);
                 bbb[this.x - i][this.y].setText("o");
             }
         }
@@ -68,18 +67,17 @@ public class Rook extends Piece {
             there = false;
             for (Piece p : Canady_ChessJFX.wlist) {
                 if (check(p, this.x + i, this.y)) {
-//                    i = this.x;
+                    i = this.x;
                     there = true;
                 }
             }
             for (Piece p : Canady_ChessJFX.blist) {
                 if (check(p, this.x + i, this.y)) {
-//                    i = this.x;
+                    i = this.x;
                     there = true;
                 }
             }
             if (!there) {
-//                System.out.println("o: " + (this.x + i) + ", " + this.y);
                 bbb[this.x + i][this.y].setText("o");
             }
         }
@@ -88,18 +86,17 @@ public class Rook extends Piece {
             there = false;
             for (Piece p : Canady_ChessJFX.wlist) {
                 if (check(p, this.x - i, this.y)) {
-//                    i = this.y;
+                    i = this.y;
                     there = true;
                 }
             }
             for (Piece p : Canady_ChessJFX.blist) {
                 if (check(p, this.x - i, this.y)) {
-//                    i = this.y;
+                    i = this.y;
                     there = true;
                 }
             }
             if (!there) {
-                System.out.println("o: " + (this.x) + ", " + (this.y - i));
                 bbb[this.x][this.y - i].setText("o");
             }
         }
@@ -108,18 +105,17 @@ public class Rook extends Piece {
             there = false;
             for (Piece p : Canady_ChessJFX.wlist) {
                 if (check(p, this.x, this.y + i)) {
-//                    i = this.y;
+                    i = this.y;
                     there = true;
                 }
             }
             for (Piece p : Canady_ChessJFX.blist) {
                 if (check(p, this.x, this.y + i)) {
-//                    i = this.y;
+                    i = this.y;
                     there = true;
                 }
             }
             if (!there) {
-                System.out.println("o: " + (this.x) + ", " + (this.y + i));
                 bbb[this.x][this.y + i].setText("o");
             }
         }
